@@ -1,0 +1,159 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Selenium Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style type="text/css">
+    /* Core Style */
+    body {
+        width : 900px;
+        margin:auto;
+        /*font-family: Arial, Helvetica, sans-serif; */
+        background-color: gray;
+        color:white;
+        /* font-size: 1.1em; */
+       /* line-height: 1.5; */
+       /* text-align: center; */
+    }
+   
+    image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    #menu-top-horizontal {
+        width: 100%;
+        height: auto;
+        background-color: black;
+        padding: 10px;
+    }
+    /* Main Area CSS */
+    #main {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #menu-left-vertical {
+        border: 1px solid #000;
+    }
+
+    #content-body {
+        width:100%;
+        position: relative;
+        /* border: 5px solid #fff; */
+        margin:0px; padding:0px;
+
+    }
+    #content-body #content {
+        position: absolute;
+        color:white;
+        width: 100%;
+    }
+   body::after {
+        content:"";
+        position:absolute;
+        top:0px;
+        left:0px;
+        background: #333 url('images/ai-codes-coding-247791.jpg');
+        background-position: center;
+        background-repeat:repeat-y;
+        background-size: cover;
+        width:100%;
+        height: 100%;
+        z-index: -1;
+         opacity: 0.20; 
+        color: white;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        margin:0px;
+        padding:0px;
+    }
+    ul {
+        border: 1px solid #fff;
+        padding: 0px;
+        margin:0px;
+        list-style-type: none;  /* remove "." before the line */
+    }
+    button {
+        /* width: 220px; */
+        width: 100%;
+        text-align: left;
+        height: 3em;
+        border: 0px;
+        font-family: Arial, Helvetica, sans-serif; 
+        font-size: 0.9em;
+       /* line-height: 1.5; */
+
+    }
+    button:hover {
+        background-color: green;
+        color: white;
+    }
+    .clicked {
+        background-color: black;
+        color: white;
+    }
+    </style>
+    <script>
+        var lastClickedBtn = null
+
+        function myFunction(obj) {
+            // NOTE: obj.id == event.srcElement.id
+            // alert(obj.id + " == " + event.srcElement.id);
+            // alert(obj.offsetWidth);
+            if (lastClickedBtn != null) {
+                lastClickedBtn.classList.remove("clicked");
+                //lastClickedBtn.setAttribute("class", ""); 
+            }
+            lastClickedBtn = obj;
+            obj.setAttribute("class", "clicked"); 
+            var x = document.getElementById("content");
+            x.innerHTML="<iframe src=" + obj.id + ".html></iframe>";
+        }
+    </script>
+</head>
+<body>
+
+    <header id="menu-top-horizontal" class="grid">
+        <h1> Welcome to Selenium Memo</h1>
+        <p> This page resumes all you need to know about Selenium WebDriver</p>
+    </header>
+
+    <!-- Main Area -->
+    <main id="main">
+        <div id="menu-left-vertical">
+            <ul id="menu-item">
+                <li><button id="installation" onclick="myFunction(this);">Installation</button></li>
+                <li><button id="findelement-css" onclick="myFunction(this);"> findElement by ID / CSS</button></li>
+                <li><button id="example1-fill-in-field" onclick="myFunction(this);">Java code to Fill in field</button></li>
+                <li><button id="examples" onclick="myFunction(this);"> Selenium WebDriver examples </button></li>
+                <li><button id="interact-components" onclick="myFunction(this);"> Automate radio buttons </button></li>
+                <li><button id="dropdown-menu" onclick="myFunction(this);"> Automate DropDown Menu </button></li>
+                <li><button id="file-upload" onclick="myFunction(this);"> Automate File Upload </button></li>
+                <li><button id="wait-implicit" onclick="myFunction(this);"> Implicit Wait </button></li>
+                <li><button id="wait-explicit" onclick="myFunction(this);"> Explicit Wait </button></li>
+                <li><button id="automate-a-workflow" onclick="myFunction(this);"> Automate a workflow</button></li>
+                <li><button id="assertion-confirmation" onclick="myFunction(this);"> Automate a workflow + Assertion </button></li>
+                <li><button id="refactor-page-objects" onclick="myFunction(this);"> Refactoring code page/class </button></li>
+            </ul>
+        </div>
+        <div id="content-body">
+            <div id="content">
+
+        
+            </div>
+        </div>
+    </main>
+</body>
+</html>

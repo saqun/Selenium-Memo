@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .section-examples {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.8em;
+         background-color: black;
+         color:white;
+         margin:0px;
+         padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <section id="section-examples" class="section-examples">
+
+    <p>
+        <h2>Autocomplete </h2>
+        driver.get("https://formy-project.herokuapp.com/autocomplete"); <br><br>
+
+        WebElement autocomplete = driver.findElement(By.id("autocomplete"));<br>
+        autocomplete.sendKeys("150E Karori Road, Karori, Wellington");<br>
+        Thread.sleep(1000);<br>
+        WebElement autocompResult = driver.findElement(By.className("pac-item"));<br>
+        autocompResult.click();<br>
+    </p>
+    <p>
+
+            <h2>Scroll</h2>
+       driver.get("https://formy-project.herokuapp.com/scroll");<br><br>
+
+        WebElement name = driver.findElement(By.id("name"));<br>
+        Actions actions = new Actions(driver);<br>
+        actions.moveToElement(name);<br>
+        name.sendKeys("Hello World");<br><br>
+
+        WebElement date = driver.findElement(By.id("date"));<br>
+        date.sendKeys("01/01/2018");<br>
+    </p>
+    <p>
+            <h2>Switch windows </h2>
+            - :driver.switchTo().window("WindowName"); <br>
+- driver.switchTo().framce("frameName");<br><br>
+        driver.get("https://formy-project.herokuapp.com/switch-window");<br>
+        WebElement btn = driver.findElement(By.id("new-tab-button"));<br>
+        btn.click();<br>
+        String originalHandle = driver.getWindowHandle();<br>
+        for(String handle1: driver.getWindowHandles()) { driver.switchTo().window(handle1); }<br>
+        driver.switchTo().window(originalHandle);<br>
+    </p>
+    <p>
+            <h2>Switch windows: driver.switchTo().alert(); </h2>
+        driver.get("https://formy-project.herokuapp.com/autocomplete");<br>
+        WebElement autocomplete = driver.findElement(By.id("autocomplete"));<br>
+        autocomplete.sendKeys("150E Karori Road, Karori, Wellington");<br>
+        Thread.sleep(1000);<br>
+        WebElement autocompResult = driver.findElement(By.className("pac-item"));<br>
+        autocompResult.click();<br>
+    </p>
+    <p>
+            <h2> JavaScriptExecutor  </h2>
+Use - when WebDriver fails to click on any element<br>
+    - To trigger actions on a page<br>
+    - To perform movement on a page<br><br>
+
+       driver.get("https://formy-project.herokuapp.com/modal");<br><br>
+
+        WebElement btnModal = driver.findElement(By.id("modal-button"));<br>
+        btnModal.click();<br>
+        WebElement btnClose = driver.findElement(By.id("close-button"));<br><br>
+ 
+        //btnClose.click();<br>
+        JavascriptExecutor js = (JavascriptExecutor) driver;<br>
+        js.executeScript("arguments[0].click();", btnClose);<br>
+    </p>
+    <p>
+        <h2>=============== Drag and Drop =========== </h2>
+        driver.get("https://formy-project.herokuapp.com/dragdrop");<br><br>
+
+        WebElement img = driver.findElement(By.id("image"));<br>
+        WebElement box = driver.findElement(By.id("box"));<br><br>
+
+        Actions actions = new Actions(driver);<br>
+        actions.dragAndDrop(img,box).build().perform();<br>
+    </p>
+    </section>
+</body>
+</html>

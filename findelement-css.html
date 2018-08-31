@@ -1,0 +1,69 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style type="text/css">
+           #section-findelement-id-css {
+           font-family: 'Courier New', Courier, monospace;
+           font-size: 0.8em;
+            background-color: black;
+            color:white;
+            margin:0px;
+            padding: 5px;
+       }
+    </style>
+</head>
+<body>
+        <section id="section-findelement-id-css" class="grid findelement-css">
+                <h2 id="findelement-id-css" class="title"> findElement by ID / CSS </h2>
+                <strong><p>&lt;input id="q" class = "cq" name = "nq"&gt; </p></strong>
+                    <span class="equi-functions">
+                        WebElement elt = driver.findElement(By.id("q")); <br>
+                        WebElement elt = driver.findElement(By.cssSelector("#q")); <br>
+                        WebElement elt = driver.findElement(By.cssSelector(".cq")); <br>
+                        WebElement elt = driver.findElement(By.cssSelector("input[name='q']")); <br>
+                    </span>
+
+                <strong><p>&lt;input id="myId" class="q" type="text" value="abc def"&gt; </p> </strong>
+                    elt = driver.findElement(By.cssSelector("input.q")); <br>
+                    elt = driver.findElement(By.cssSelector("input#myId")); <br>
+                    elt = driver.findElement(By.cssSelector("input[type='text']")); <br>
+                    elt = driver.findElement(By.cssSelector("input[value='abc def']")); <br>
+                    
+                <strong><p>
+                        &lt;input type="button" value="abc def btn1"&gt; <br>
+                        &lt;input type="button" value="abc def btn2"&gt; <br>
+                        &lt;input type="button" value="abc def btn3"&gt; <br>
+                    </p> </strong>
+                    elt = driver.findElement(By.cssSelector("abc.def.btn1")); <br> <br>
+                    
+                    driver.findElement(By.cssSelector("&lt;tagname&gt;[type='&lt;value&gt;']")); <br>
+                    
+                            &lt;div id="textField"&gt; <br>
+                    
+                    driver.findElement(By.cssSelector("div[id='textField']")); <br>
+                    driver.findElement(By.cssSelector("div[id^='text']")); <br>
+                    driver.findElement(By.cssSelector("div[id$='Field']")); <br>
+                    driver.findElement(By.cssSelector("div[id*='xtF']")); <br>
+                    
+                    Child:  &lt;div id="parent"&gt; &lt;a id="child" href="/chld"&gt; Child &lt;/a&gt; </div&gt; <br>
+                    driver.findElement(By.cssSelector("div#parent a")); <br>
+                    
+                    Nth-Child <br>
+                    =========== <br>
+                    &lt;ul id="list"&gt; <br>
+                    &lt;li&gt; One &lt;/li&gt; <br>
+                    &lt;li&gt; Two &lt;/li&gt; <br>
+                    &lt;li&gt; Three &lt;/li&gt; <br>
+                    &lt;/ul&gt; <br>
+                    
+                    ==&gt; driver.findElement(By.cssSelector("#list li:nth-child(n)");
+            </section>
+
+</body>
+</html>

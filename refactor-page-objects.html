@@ -1,0 +1,122 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="SeleniumMemoClass" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style type="text/css">
+       #section-code {
+           font-family: 'Courier New', Courier, monospace;
+           font-size: 0.8em;
+            background-color: black;
+            color:white;
+            margin:0px;
+            padding: 5px;
+       }
+        .func-body {
+            padding-left: 10px;
+ 
+        }
+        .java-class-body {
+            margin-left: 20px;
+        }
+        .java-func-body {
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+<h2>Refactoring code page/class </h2>
+
+<section id="section-code" class="grid" >
+        <div class="java-code">
+
+            <div class="java-class">
+                    import org.openqa.selenium.By; <br>
+                    import org.openqa.selenium.WebDriver; <br>
+                    import org.openqa.selenium.support.ui.ExpectedConditions; <br>
+                    import org.openqa.selenium.support.ui.WebDriverWait; <br> <br>
+                    
+                    public class ConfirmationPage { <br>
+                        <div class="java-class-body"> 
+                        public static void waitForAlertBanner(WebDriver driver) { <br>
+                            <div class="java-func-body"> 
+                                    WebDriverWait wait = new WebDriverWait(driver, 10); <br>
+                            wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert")))); <br>
+                            </div>
+                        } <br> <br>
+                    
+                        public static String getAlertBannerText(WebDriver driver) { <br>
+                            <div class="java-func-body"> 
+                                    return driver.findElement(By.className("alert")).getText(); <br>
+                                    </div>
+                        } <br>
+                        </div>
+                    }   <br>   
+                    import org.openqa.selenium.By;<br>
+                    import org.openqa.selenium.Keys;<br>
+                    import org.openqa.selenium.WebDriver;<br><br>
+
+                    public class FormPage {<br>
+                        <div class="java-class-body"> 
+                        public static void submitForm(WebDriver driver) {<br>
+                            <div class="java-func-body"> 
+                            driver.findElement(By.id("first-name")).sendKeys("John"); <br>
+
+                            driver.findElement(By.id("last-name")).sendKeys("Doe"); <br>
+
+                            driver.findElement(By.id("job-title")).sendKeys("QA Engineer"); <br>
+
+                            driver.findElement(By.id("radio-button-2")).click(); <br>
+
+                            driver.findElement(By.id("checkbox-2")).click(); <br>
+
+                            driver.findElement(By.cssSelector("option[value='1']")).click(); <br>
+
+                            driver.findElement(By.id("datepicker")).sendKeys("05/28/2019"); <br>
+                            driver.findElement(By.id("datepicker")).sendKeys(Keys.RETURN); <br>
+
+                            driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click(); <br>
+                            </div>
+                        }<br>
+                        </div>
+                    }<br><br>
+                    import org.openqa.selenium.WebDriver;<br>
+                    import org.openqa.selenium.chrome.ChromeDriver;<br>
+                    import static org.junit.Assert.assertEquals;<br><br>
+
+                    public class Form {<br>
+                        <div class="java-class-body"> 
+                        public static void main(String[] args) {<br>
+                            <div class="java-func-body"> 
+                            String url = "C:\\Drivers\\Selenium\\chromedriver_win32\\chromedriver.exe";<br>
+                            System.setProperty("webdriver.chrome.driver", url);<br><br>
+
+                            WebDriver driver = new ChromeDriver();<br>
+
+                            driver.get("https://formy-project.herokuapp.com/form");<br><br>
+
+                            FormPage fp = new FormPage();<br>
+                            fp.submitForm(driver);<br><br>
+
+                            ConfirmationPage cp = new ConfirmationPage();<br>
+                            cp.waitForAlertBanner(driver);<br><br>
+
+                            assertEquals("The form was successfully submitted!", cp.getAlertBannerText(driver));<br><br>
+
+                            driver.quit();<br>
+                            </div>
+                        }<br>
+                        </div>
+                    }<br>
+            </div>
+                
+        </div>
+</section>
+
+</body>
+</html>

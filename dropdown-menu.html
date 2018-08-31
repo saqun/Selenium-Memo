@@ -1,0 +1,60 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="SeleniumMemoClass" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style type="text/css">
+       #section-code {
+           font-family: 'Courier New', Courier, monospace;
+           font-size: 0.8em;
+            background-color: black;
+            color:white;
+            margin:0px;
+            padding: 5px;
+       }
+        .func-body {
+            padding-left: 10px;
+ 
+        }
+    </style>
+</head>
+<body>
+    
+
+<section id="section-code" class="grid" >
+        <h2 id="fill-in-field">Dropdown menu </h2> 
+        <div class="java-code">
+            import org.openqa.selenium.By; <br>
+            import org.openqa.selenium.WebDriver; <br>
+            import org.openqa.selenium.WebElement; <br>
+            import org.openqa.selenium.chrome.ChromeDriver; <br> <br>
+
+            public class SeleniumMemoClass { <br>
+                    public static void main(String[] args) { <br>
+                <div class="func-body">
+                    String url = "C:\\Drivers\\Selenium\\chromedriver_win32\\chromedriver.exe"; <br>
+                    System.setProperty("webdriver.chrome.driver", url); <br> <br>
+            
+                    WebDriver driver = new ChromeDriver(); <br> <br>
+            
+                    driver.get("https://formy-project.herokuapp.com/dropdown"); <br>
+                    WebElement dropdownMenu = driver.findElement(By.id("dropdownMenuButton")); <br>
+                    dropdownMenu.click(); <br> <br>
+            
+                    WebElement autocomplete = driver.findElement(By.id("autocomplete")); <br>
+                    autocomplete.click(); <br> <br>
+            
+                    driver.quit(); <br>
+                    } <br>
+                </div>
+            } <br>
+                
+        </div>
+</section>
+
+</body>
+</html>
